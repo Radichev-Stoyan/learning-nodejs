@@ -8,5 +8,8 @@
     "start": "node ./improved-dev-workflow-and-debugging/app.js"
   },
   "author": "Stoyan Radichev",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
 }
