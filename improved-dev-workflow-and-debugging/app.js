@@ -1,4 +1,4 @@
-const http = require('http');
+// const http = require('http');
 
 const express = require('express');
 
@@ -14,6 +14,8 @@ app.use((req, res, next) => {
   res.send('<h1>Hello from Express!</h1>'); // Sends a response to the client so no need to call next()
 });
 
-const server = http.createServer(app);
+app.listen(3000); // Shortcut replacement for lines 19 and 21 and this makes line 1 unnecessary
 
-server.listen(3000);
+// const server = http.createServer(app);
+
+// server.listen(3000);
