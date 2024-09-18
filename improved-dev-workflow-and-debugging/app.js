@@ -1,21 +1,23 @@
 // const http = require('http');
 
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use('/', (req, res, next) => {
-  console.log('This always runs!');
-  next();
-});
+app.use(bodyParser.urlencoded({ extended: false })); // Parsing request body
 
 app.use('/add-product', (req, res, next) => { // If the path doesn't match, the callback won't be executed and it will continue to the next middleware
-  console.log('In another middleware!');
-  res.send('<h1>"Add product page"</h1>'); // Sends a response to the client so no need to call next()
+  res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>'); // Sends a response to the client so no need to call next()
 });
 
+app.use('/product', (req, res, next) => {
+  console.log(req.body);
+  res.redirect('/');
+});
+
+
 app.use('/', (req, res, next) => {
-  console.log('In another middleware!');
   res.send('<h1>Hello from Express!</h1>'); // Sends a response to the client so no need to call next()
 });
 
