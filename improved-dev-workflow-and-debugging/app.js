@@ -11,7 +11,7 @@ app.use('/add-product', (req, res, next) => { // If the path doesn't match, the 
   res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>'); // Sends a response to the client so no need to call next()
 });
 
-app.use('/product', (req, res, next) => {
+app.post('/product', (req, res, next) => { // Only executes if there is a POST request, respectfully app.get will execute only fo GET requests
   console.log(req.body);
   res.redirect('/');
 });
