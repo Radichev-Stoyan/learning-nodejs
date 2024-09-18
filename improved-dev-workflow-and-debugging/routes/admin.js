@@ -2,9 +2,11 @@ const path = require('path');
 const express = require('express');
 const router = express.Router();
 
+const rootDir = require('../utils/path');
+
 // /admin/add-product => GET
 router.get('/add-product', (req, res, next) => { // If the path doesn't match, the callback won't be executed and it will continue to the next middleware
-  res.sendFile(path.join(__dirname, '../', 'views', 'add-product.html'));
+  res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
 });
 
 // /admin/add-product => POST
