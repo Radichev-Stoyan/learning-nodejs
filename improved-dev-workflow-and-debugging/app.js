@@ -13,6 +13,10 @@ app.use(bodyParser.urlencoded({ extended: false })); // Parsing request body
 app.use(adminRoutes);
 app.use(shopRoutes);
 
+app.use((req, res, next) => {
+  res.status(404).send('<h1>Page not found</h1>');
+});
+
 app.listen(3000); // Shortcut replacement for lines 19 and 21 and this makes line 1 unnecessary
 
 // const server = http.createServer(app);
