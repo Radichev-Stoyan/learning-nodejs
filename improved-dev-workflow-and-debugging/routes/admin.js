@@ -4,6 +4,8 @@ const router = express.Router();
 
 const rootDir = require('../utils/path');
 
+const products = [];
+
 // /admin/add-product => GET
 router.get('/add-product', (req, res, next) => { // If the path doesn't match, the callback won't be executed and it will continue to the next middleware
   res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
@@ -11,8 +13,9 @@ router.get('/add-product', (req, res, next) => { // If the path doesn't match, t
 
 // /admin/add-product => POST
 router.post('/add-product', (req, res, next) => { // Only executes if there is a POST request, respectfully app.get will execute only fo GET requests
-  console.log(req.body);
+  products.push({ title: req.body.title });
   res.redirect('/');
 });
 
-module.exports = router;
+exports.routes = router;
+exports.products = products;
