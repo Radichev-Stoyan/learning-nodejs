@@ -8,7 +8,7 @@ const products = [];
 
 // /admin/add-product => GET
 router.get('/add-product', (req, res, next) => { // If the path doesn't match, the callback won't be executed and it will continue to the next middleware
-  res.render('add-product', { pageTitle: 'Add Product' });
+  res.render('add-product', { pageTitle: 'Add Product', path: '/admin/add-product' });
 });
 
 // /admin/add-product => POST

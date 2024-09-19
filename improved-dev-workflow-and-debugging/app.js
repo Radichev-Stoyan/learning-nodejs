@@ -19,7 +19,7 @@ app.use('/admin', adminData.routes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
-  res.status(404).render('404');
+  res.status(404).render('404', { pageTitle: 'Page Not Found' });
 });
 
 app.listen(3000); // Shortcut replacement for lines 19 and 21 and this makes line 1 unnecessary
